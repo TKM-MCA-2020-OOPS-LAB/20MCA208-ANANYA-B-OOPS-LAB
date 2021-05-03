@@ -1,0 +1,37 @@
+package myproject;
+
+
+public class CompNum {
+	double real,img;
+	
+	public CompNum(double real,double img) {
+		this.real=real;
+		this.img=img;
+		
+	}
+	public static CompNum sum(CompNum c1, CompNum c2) {
+		CompNum temp = new CompNum(0,0);
+		temp.real=c1.real+c2.real;
+		temp.img=c1.img+c2.img;
+		return temp;
+	}
+	void printComplexNum()
+    {
+        System.out.println("Complex number: "
+                           + real + " + "
+                           + img + "i");
+    }
+
+	public static void main(String[] args) {
+		CompNum c1= new CompNum(5,4.5);
+		c1.printComplexNum();
+		CompNum c2= new CompNum(2,7.4);
+		c2.printComplexNum();
+		CompNum temp=sum(c1,c2);
+		System.out.print("Sum of ");
+        temp.printComplexNum();
+		
+
+	}
+
+}
