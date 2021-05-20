@@ -2,7 +2,7 @@ package myproject;
 
 import java.util.Scanner;
 
- class Employees {
+public class Employees {
 	 int Empid;
 	 String name;
 	int salary;
@@ -10,7 +10,7 @@ import java.util.Scanner;
 	 
 	
 	  	
-    Employees(int e,String n,int s,String a) {
+   public Employees(int e,String n,int s,String a) {
     	Empid=e;
     	name=n;
     	salary=s;
@@ -20,40 +20,21 @@ import java.util.Scanner;
    
    
 
-}
 
- class Teacher extends Employees{
+
+  static class Teacher extends Employees{
 	 String dept;
 	 String sub;
 	
-  Teacher(int e,String n,int s,String a,String d,String su) {
+ public Teacher(int e,String n,int s,String a,String d,String su) {
 	  super(e,n,s,a);
 		dept=d;
 		su=sub;
 		
-	}
-  void input() {
-	  Scanner ip =new Scanner(System.in);
-	  System.out.println("Enter Employee id: ");
-     Empid=ip.nextInt();
-		System.out.println("Enter Employee Name: ");
-  		name=ip.next();
-  		System.out.println("Enter Salary: ");
-  		salary=ip.nextInt();
-  		System.out.println("Enter Address: ");
-  		address=ip.next();
-  		System.out.println("Enter department: ");
-  		dept=ip.next();
-  		System.out.println("Enter Subject: ");
-  	    sub=ip.next();
-  		ip.close();
-						
-		
-		}
-	  
+	}  
   
 	
-   void display()
+ public  void display()
 	{
 		System.out.println("********Employee Details********");
 		System.out.println("Employee id: "+Empid);
@@ -64,27 +45,42 @@ import java.util.Scanner;
 		System.out.println("Subject: "+sub);
 	}
 	
+ }
 
-
+	
 	public static void main(String[] args) {
 
-		Scanner in =new Scanner(System.in);
+		Scanner sc =new Scanner(System.in);
 		System.out.println("Enter number of employees: ");
-		int N=in.nextInt();
+		int N=sc.nextInt();
         Teacher T[] = new Teacher[N];
-        in.close();
-		
         int i;
+   
         for(i=0;i<N;i++) 
-		{   T[i].input();
-			T[i].display();
+		{   
+        	
+        	System.out.println("Enter the ID:");
+		   int id= sc.nextInt();
+		   System.out.println("Enter the name:");
+		    String nam= sc.next();
+		   System.out.println("Enter the salary:");
+		    int sal= sc.nextInt();
+		   System.out.println("Enter the address:");
+		    String add= sc.next();
+		   System.out.println("Enter the department:");
+		   String det= sc.next();
+		   System.out.println("Enter the subject:");
+		   String sb= sc.next();
+		   System.out.println("\n");
+		   T[i]=new Teacher(id,nam,sal,add,det,sb);
 		}
         
-	
+        System.out.println("***Employee Details***");
+        for( i=0;i<N;i++)
+            T[i].display();
 		
 		// TODO Auto-generated method stub
 
 	}
 
 	}
-
