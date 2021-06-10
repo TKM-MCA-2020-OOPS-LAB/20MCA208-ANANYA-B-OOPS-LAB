@@ -1,6 +1,6 @@
 package myproject;
 import java.util.Scanner;
-class AuException extends Exception {
+class passwordException extends Exception {
 	
 	
 	/**
@@ -8,8 +8,21 @@ class AuException extends Exception {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	AuException(String s){
+	passwordException(String s){
 		super(s);
+	}
+
+}
+ class UsernameException extends Exception {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	
+	public UsernameException(String msg) {
+		super(msg);
 	}
 
 }
@@ -30,31 +43,45 @@ public class Authentication {
         sc.close();
         try
         {
-           Authenticate(username,password);
-		    }catch(Exception e)
-		      {
-			       System.out.println("Exception Occurred. . "+e);
-		      }
-	// TODO Auto-generated method stub
+           
+        	
+	 if(username==""){
+		 throw new UsernameException("Fields cannot be empty!!!");
+	 }
+	 if(password==""){
+		 throw new passwordException("Fields cannot be empty!!!");
+	 }
+	 else if (username.length()<6) {
+		 throw new UsernameException("Username must be atmost 6 characters!");
+	 }
+	 else if (password.length()<8) {
+		 throw new passwordException("Please enter a strong password");
+	 }
+	 if (!(password.contains("@") || password.contains("#")
+             || password.contains("!") || password.contains("~")
+             || password.contains("$") || password.contains("%")
+             || password.contains("^") || password.contains("&")
+             || password.contains("*") || password.contains("(")
+             || password.contains(")") || password.contains("-")
+             || password.contains("+") || password.contains("/")
+             || password.contains(":") || password.contains(".")
+             || password.contains(", ") || password.contains("<")
+             || password.contains(">") || password.contains("?")
+             || password.contains("|"))) {
+           throw new passwordException("password must contain any special character");
+       }
 
-}
-
-public static void Authenticate(String uname, String pwd) throws AuException{
-	
-	 if((uname=="") || (pwd=="")) {
-		 throw new AuException("Fields cannot be empty!!!");
-	 }
-	 else if (uname.length()<6) {
-		 throw new AuException("Username must be atmost 6 characters!");
-	 }
-	 else if (pwd.length()<8) {
-		 throw new AuException("Please enter a strong password");
-	 }
 	 else {
-		 System.out.print("\nYou are successfully registered!!");
-		 System.out.println("Authentication Successful!!!");
+		 System.out.println("Login Successfully!!!");
 	 
-		 System.exit(0);
+	 }
+	 
+        }
+	 catch (UsernameException e) {
+		 System.out.println("Exception Occurred. . "+e);
+	 }
+catch (passwordException e) {
+		 System.out.println("Exception Occurred. . "+e);
 	 }
 		// TODO Auto-generated method stub
 
