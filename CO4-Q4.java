@@ -17,7 +17,7 @@ public class AverageException {
 
 	public static void main(String[] args) {
 		
-	       int sum = 0,i;
+		int sum = 0,i;
 	       float average;
 	       Scanner sc=new Scanner(System.in);
 	      System.out.println("Enter how many numbers to calulate  average:");
@@ -28,9 +28,9 @@ public class AverageException {
 			   numbers[i]=sc.nextInt();
 	      sc.close();
 	       for( i=0; i < numbers.length ; i++)
-	        sum = sum + numbers[i];
+	        
 	       
-	       average = sum / numbers.length;
+	       
 	        
 	        for( i=0; i < numbers.length ; i++) {
 				try 
@@ -38,10 +38,11 @@ public class AverageException {
 					
 					if(numbers[i] < 0)
 					{
-					    throw new NegativeinputException("Numbers must be Positive!!!!!!!");
+					    throw new NegativeinputException("Numbers must be Positive!!! Enter inputs again..");
 					  
 					}
-				
+				else{
+                                     sum += numbers[i];           }
 				
 					
 				}
@@ -50,9 +51,11 @@ public class AverageException {
 				{
 
 					System.out.println("Exception Occurred. . "+e);
-				
+				         System.exit(0);
 				}		
 				
-	        }System.out.println("Average value of the array elements is : " + average);
+	        }sc.close();
+              average = sum / numbers.length;
+             System.out.println("Average of elements is : " + average);
    }
 }
