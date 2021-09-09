@@ -12,7 +12,7 @@ setLayout(new FlowLayout(FlowLayout.RIGHT));
 add(text);
 addMouseListener(this);
 addMouseMotionListener(this);
-setBackground(Color.RED);
+setBackground(Color.YELLOW);
 }
 
 // Handle mouse clicked.
@@ -51,12 +51,12 @@ repaint();
 public void paint(Graphics g)
 {
 g.drawString(msg,20,20);
-g.setColor(Color.blue);
+g.setColor(Color.black);
 
 }
 }
 
 /*
-<applet code="MouseEvents1" width=300 height=100>
+<applet code="MouseEvents1" width=500 height=400>
 </applet>
 */
