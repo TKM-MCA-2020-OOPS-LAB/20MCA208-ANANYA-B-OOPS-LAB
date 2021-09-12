@@ -1,11 +1,12 @@
 import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.Graphics; 
 
 public class faceapplet extends Applet implements ActionListener {
     
 
-TextField t1 = new TextField(10);  
+    TextField t1 = new TextField(10);  
     TextField t2 = new TextField(10);  
     TextField t3 = new TextField(10);
     TextField t4 = new TextField(10); 
@@ -49,50 +50,51 @@ TextField t1 = new TextField(10);
     }
     public void actionPerformed(ActionEvent e){
 
-        int x=0;
-        int y=0;
-        int z=0;
-        int total=0;
-        x= Integer.parseInt(t1.getText());
-        y= Integer.parseInt(t2.getText());
-        z= Integer.parseInt(t3.getText());
+        int a=0;
+        int c=0;
+        int d=0;
+        int Total=0;
+        a= Integer.parseInt(t1.getText());
+        c= Integer.parseInt(t2.getText());
+        d= Integer.parseInt(t3.getText());
         if(e.getSource()==b){
 
-            total=(x+y+z)/3;
-            t4.setText(String.valueOf(total));
+            Total=(a+c+d)/3;
+            t4.setText(String.valueOf(Total));
         }
 
 
 
     }
+
     @Override
     public void paint(Graphics g){
-        int x=0;
-        int y=0;
-        int z=0;
-        int total=0;
+       
+        int a=0;
+        int c=0;
+        int d=0;
+        int Total=0;
+        a= Integer.parseInt(t1.getText());
+        c= Integer.parseInt(t2.getText());
+        d= Integer.parseInt(t3.getText());
+        Total=(a+c+d)/3; 
+        if(Total > 50)
 
-
-        x= Integer.parseInt(t1.getText());
-        y= Integer.parseInt(t2.getText());
-        z= Integer.parseInt(t3.getText());
-
-        total=(x+y+z)/3;
-
-        if(total > 50){
-           g.setColor(Color.yellow);
-g.fillOval(0,0,200,200);
+{
+g.setColor(Color.orange);
+g.fillOval(0,0,300,300);
 g.setColor(Color.RED);
-g.fillOval(120,95,30,30);//happy face
-g.fillOval(180,95,30,30);
+g.fillOval(80,75,30,30);//happy face
+g.fillOval(190,75,30,30);
 g.setColor(Color.black);
 g.fillArc (75,100,150,150,0,-180);
         }
-        else
-        {
-           g.setColor(Color.GREEN);
+else
+{
+
+g.setColor(Color.orange);
 g.fillOval(0,0,300,300);
-g.setColor(Color.black );
+g.setColor(Color.red );
 g.fillOval(80,75,30,30);//sad face
 g.fillOval(190,75,30,30);
 g.setColor(Color.black);
