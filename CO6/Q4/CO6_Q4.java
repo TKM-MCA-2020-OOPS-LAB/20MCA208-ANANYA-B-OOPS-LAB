@@ -1,14 +1,18 @@
-package myproject;
-import java.io.*;
+package myprojects;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Scanner;
 
-public class OddEvenfiles
-{
- public static void main(String args[]) throws IOException
+public class CO6_Q4 {
+
+	public static void main(String args[]) throws IOException
 	{ 
-    FileInputStream fr = new FileInputStream("Integers.txt");
-    FileOutputStream fw1 = new FileOutputStream("Even.txt");
-    FileOutputStream fw2 = new FileOutputStream("Odd.txt");
-    System.out.println("Odd numbers and Even numbers are copied to separate files"); 
+    FileInputStream fr = new FileInputStream("H:\\Sem-2\\OOPS-LAB\\COURSE OUTCOMES\\CO6\\Q4\\Integers.txt");
+    FileOutputStream fw1 = new FileOutputStream("H:\\Sem-2\\OOPS-LAB\\COURSE OUTCOMES\\CO6\\Q4\\Even.txt");
+    FileOutputStream fw2 = new FileOutputStream("H:\\Sem-2\\OOPS-LAB\\COURSE OUTCOMES\\CO6\\Q4\\Odd.txt");
+    System.out.println("\nOdd Numbers & Even Numbers Are Copied To Separate Files......\n"); 
     int i;
     while((i=fr.read()) != -1) 
    	  
@@ -25,3 +29,4 @@ public class OddEvenfiles
     
 }
 }
+
